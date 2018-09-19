@@ -35,6 +35,8 @@
 `mongodb://student:JNytCZanZaDEcTxMZyM2wsaF@ds161312.mlab.com:61312/codesplash`
 위 data에는 `images` 라는 collection에 `db.json` 데이터가 들어 있습니다.
 
+* server에서 databse 통해 받아오는 photo list를 보면 id 값이 있습니다. 그 id값을 이용해서 `https://picsum.photos/200/300?image=fetched_id` 의 `picsum api`를 활용하여 그림을 그리시면 됩니다.
+
 ## Submitting Your Work
 
 여러분들은 18:00 시에 감독관의 지시에 따라 결과물(개인 client, server repository link)을 제출합니다. 18:00 시에 general 채널에서 공유해 주시기 바랍니다. (다만, 일찍 끝내고 떠나시는 분은 마지막 commit을 감독관에게 DM으로 보내시면 됩니다. 일찍 떠나신 이후에 추가로 commit 된 코드는 인정되지 않습니다. cheating으로 처리되거나 강의장 떠나신 시점에서 가장 최근 commit으로 평가될 수 있습니다)
