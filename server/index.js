@@ -7,7 +7,7 @@ require('./config')
 
 const PORT = 5000
 
-app.use('./', routes)
+app.use('/', routes)
 
 app.listen(PORT, () => {
     console.log('server listen port ' + PORT)
