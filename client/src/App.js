@@ -14,7 +14,16 @@ class App extends Component {
     this.moveHome()
   }
 
-  handleonClick = (author) => {
+  handleonClick = (selectedItem) => {
+    var selected = []
+    selected.push(selectedItem)
+    this.setState({
+      data: selected,
+      select: true
+    })
+  }
+
+  selectAuthor = (author) => {
     axios.get('http://34.223.226.117:5000/author/' + author) //
       .then(res => {
         this.setState({
@@ -26,7 +35,7 @@ class App extends Component {
   }
 
   moveHome = () => {
-    axios.get('http://34.223.226.117/images')//
+    axios.get('http://34.223.226.117:5000/images')//
       .then(res => {
         this.setState({
           data: res.data,
@@ -43,7 +52,7 @@ class App extends Component {
         <div className='codesplash' onClick={() => this.moveHome()}>
           Code Splash
         </div>
-        <div className='title'>{this.state.select ?
+        <div className='title' onClick={() => this.selectAuthor(this.state.data[0].author)}>{this.state.select ?
           (<span>{this.state.data[0].author}</span>)
           : ''
         }
@@ -52,7 +61,7 @@ class App extends Component {
           {this.state.data.length ?
             this.state.data.map((data) => {
               var url = 'https://picsum.photos/200/300?image=' + data.id;
-              return <span className='thumnail' onClick={() => this.handleonClick(data.author)}><img src={url} key={data.id} alt={data.filename} /></span>
+              return <span className='thumnail' onClick={() => this.handleonClick(data)}><img src={url} key={data.id} alt={data.filename} /></span>
             })
             : 'loading...'}
         </ul>
